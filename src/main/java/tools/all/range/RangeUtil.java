@@ -18,16 +18,19 @@ import tools.all.common.CollectionUtils;
  */
 public class RangeUtil {
 
-    public static List<Range> fromCollection(Collection<Integer> integers) {
+    /**
+     * 将整数集合变为一个有序的区间组合
+     */
+    public static ArrayList<Range> fromCollection(Collection<Integer> integers) {
         if (CollectionUtils.isEmpty(integers)) {
-            return Collections.EMPTY_LIST;
+            return new ArrayList<>();
         }
 
         Set<Integer> set = new HashSet<>(integers);
         List<Integer> list = new ArrayList<>(set);
         Collections.sort(list);
 
-        List<Range> result = Lists.newArrayList();
+        ArrayList<Range> result = Lists.newArrayList();
         Range current = new Range(list.get(0), list.get(0));
         for (int index = 1; index < list.size(); index++) {
             if (list.get(index) == current.getUpperBound() + 1) {
@@ -42,7 +45,10 @@ public class RangeUtil {
         return result;
     }
 
-    public static Range binarySearch(List<Range> list, int number) {
+    /**
+     * 在有序的区间组合内进行查找
+     */
+    public static Range binarySearch(ArrayList<Range> list, int number) {
         if (CollectionUtils.isEmpty(list)) {
             return null;
         }
@@ -65,7 +71,10 @@ public class RangeUtil {
         return null;
     }
 
-    public static boolean contains(List<Range> list, int number) {
+    /**
+     * 在有序区间内查找
+     */
+    public static boolean contains(ArrayList<Range> list, int number) {
         return binarySearch(list, number) != null;
     }
 }

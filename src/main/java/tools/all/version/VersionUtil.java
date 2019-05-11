@@ -49,10 +49,16 @@ public class VersionUtil {
         }
     }
 
+    /**
+     * 对版本数据从小到大排序
+     */
     public static List<String> orderByASC(List<String> versions) {
         return orderBy(versions, VersionOrderByEnum.ASC);
     }
 
+    /**
+     * 对版本数据从大到小排序
+     */
     public static List<String> orderByDESC(List<String> versions) {
         return orderBy(versions, VersionOrderByEnum.DESC);
     }

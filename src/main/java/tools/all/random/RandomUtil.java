@@ -1,6 +1,6 @@
 package tools.all.random;
 
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * 功能描述:  <p></p>
@@ -16,14 +16,20 @@ public class RandomUtil {
         'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
         'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '@', '#', '*'};
 
+    /**
+     * 随机生成一个长度为10的字符串
+     */
     public static String randomString() {
         return randomString(10);
     }
 
+    /**
+     * 随机生成一个长度为length的字符串
+     */
     public static String randomString(int length) {
         StringBuilder builder = new StringBuilder();
         int max = CHAR_ARRAY.length;
-        Random random = new Random();
+        ThreadLocalRandom random = ThreadLocalRandom.current();
         while (length-- > 0) {
             builder.append(CHAR_ARRAY[random.nextInt(max)]);
         }

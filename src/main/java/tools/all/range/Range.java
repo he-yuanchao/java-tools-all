@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 功能描述:  <p></p>
+ * 功能描述:  <p>整数区间，如 [1,5] 代表1到5之间的数字</p>
  *
  * @author : yuanchao.he
  * @version 1.0 2019-05-09
